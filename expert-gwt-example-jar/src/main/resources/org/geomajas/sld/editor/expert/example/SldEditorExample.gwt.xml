@@ -18,7 +18,8 @@
 	<inherits name='com.smartgwt.SmartGwt'/>
 	<inherits name="com.smartclient.theme.enterprise.Enterprise"/>
 
-	<inherits name="org.geomajas.sld.editor.expert.GeomajasSldExpertSmartGwt"/>  <!-- using SmartGwt -->
+	<inherits name="org.geomajas.sld.editor.expert.GeomajasSldExpertSmartGwt"/>  <!-- using SmartGwt (without theme) -->
+    <inherits name="com.smartclient.theme.enterprise.Enterprise"/>  <!--include enterprise theme -->
 	
 	<extend-property name="locale" values="nl" />
 	<extend-property name="locale" values="en"/>
