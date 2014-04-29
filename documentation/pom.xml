@@ -20,7 +20,7 @@
 
 	<groupId>org.geomajas.project</groupId>
 	<artifactId>geomajas-project-sld-editor-documentation</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0-M2</version>
 	<packaging>jar</packaging>
 
 	<name>Geomajas SLD editor documentation</name>
