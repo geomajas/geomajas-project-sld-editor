@@ -1,8 +1,8 @@
-<!-- ~ This is part of Geomajas, a GIS framework, http://www.geomajas.org/. 
+<!-- ~ This is part of Geomajas, a GIS framework, http://www.geomajas.org/.
 	~ ~ Copyright 2008-2014 Geosparc nv, http://www.geosparc.com/, Belgium. ~
-	~ The program is available in open source according to the GNU Affero ~ General 
-	Public License. All contributions in this program are covered ~ by the Geomajas 
-	Contributors License Agreement. For full licensing ~ details, see LICENSE.txt 
+	~ The program is available in open source according to the GNU Affero ~ General
+	Public License. All contributions in this program are covered ~ by the Geomajas
+	Contributors License Agreement. For full licensing ~ details, see LICENSE.txt
 	in the project root. -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -45,28 +45,6 @@
 			<artifactId>geomajas-project-codemirror-gwt</artifactId>
 		</dependency>
 
-		<!-- DI dependencies -->
-		<dependency>
-			<groupId>com.google.inject</groupId>
-			<artifactId>guice</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.google.inject.extensions</groupId>
-			<artifactId>guice-servlet</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.google.inject.extensions</groupId>
-			<artifactId>guice-assistedinject</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>aopalliance</groupId>
-			<artifactId>aopalliance</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.google.gwt.inject</groupId>
-			<artifactId>gin</artifactId>
-		</dependency>
-
 		<!-- other -->
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -91,11 +69,21 @@
 			<artifactId>log4j-over-slf4j</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+			<version>4.10</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.google.gwt.gwtmockito</groupId>
+			<artifactId>gwtmockito</artifactId>
+			<version>1.1.2</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<profiles>
@@ -111,6 +99,8 @@
 						<directory>src/main/java</directory>
 						<includes>
 							<include>**/*.java</include>
+							<include>**/*.css</include>
+							<include>**/*.xml</include>
 						</includes>
 					</resource>
 					<resource>

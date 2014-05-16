@@ -1,0 +1,15 @@
+@external .gm-sldEditorToolStrip;
+.gm-sldEditorToolStrip {
+	width: 650px;
+}
+
+@external .gm-sldEditorCodeMirrorPanel;
+.gm-sldEditorCodeMirrorPanel {
+	width: 650px;
+	height: 400px;
+}
+
+@external .gm-sldEditorSelectTemplateListBox;
+.gm-sldEditorSelectTemplateListBox {
+	width: 400px;
+}

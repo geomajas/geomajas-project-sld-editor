@@ -25,23 +25,11 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>org.geomajas</groupId>
-				<artifactId>geomajas-backend</artifactId>
-				<version>1.13.1</version>
+				<groupId>org.geomajas.project</groupId>
+				<artifactId>geomajas-project-client-gwt</artifactId>
+				<version>1.15.0-M4</version>
 				<type>pom</type>
 				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.geomajas</groupId>
-				<artifactId>geomajas-face-gwt</artifactId>
-				<version>1.14.0</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.geomajas</groupId>
-				<artifactId>geomajas-gwt-example-base</artifactId>
-				<version>1.14.0</version>
 			</dependency>
 			<dependency>
 				<groupId>xml-apis</groupId>
@@ -65,7 +53,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -76,20 +64,6 @@
 		<dependency>
 			<groupId>org.geomajas</groupId>
 			<artifactId>geomajas-gwt-example-base</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.geomajas.plugin</groupId>
-					<artifactId>geomajas-layer-geotools</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.geomajas.plugin</groupId>
-					<artifactId>geomajas-layer-openstreetmap</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.geomajas.plugin</groupId>
-					<artifactId>geomajas-layer-wms</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<!-- Google dependencies -->
@@ -158,6 +132,8 @@
 						<directory>src/main/java</directory>
 						<includes>
 							<include>**/*.java</include>
+							<include>**/*.css</include>
+							<include>**/*.xml</include>
 						</includes>
 					</resource>
 				</resources>

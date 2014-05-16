@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ This is part of Geomajas, a GIS framework, http://www.geomajas.org/.
+  ~
+  ~ Copyright 2008-2014 Geosparc nv, http://www.geosparc.com/, Belgium.
+  ~
+  ~ The program is available in open source according to the GNU Affero
+  ~ General Public License. All contributions in this program are covered
+  ~ by the Geomajas Contributors License Agreement. For full licensing
+  ~ details, see LICENSE.txt in the project root.
+  -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<chapter id="chapter-configuration">
+  <title>configuration</title>
+
+  <section id="dependencies">
+    <title>Maven configuration</title>
+
+    <para>In order to use this plugin in combination with the GWT Client, the
+    following Maven dependency is required:</para>
+
+    <programlisting>&lt;dependency&gt;
+    &lt;groupId&gt;org.geomajas.project&lt;/groupId&gt;
+    &lt;artifactId&gt;geomajas-project-sld-editor-expert-gwt&lt;/artifactId&gt;
+    &lt;version&gt;<?eval ${project.version}?>&lt;/version&gt;
+&lt;/dependency&gt;</programlisting>
+
+    <para>In order to use this plugin in combination with the GWT 2 Client,
+    the following Maven dependency is required:</para>
+
+    <programlisting>&lt;dependency&gt;
+    &lt;groupId&gt;org.geomajas.project&lt;/groupId&gt;
+    &lt;artifactId&gt;geomajas-project-sld-editor-expert-gwt2&lt;/artifactId&gt;
+    &lt;version&gt;<?eval ${project.version}?>&lt;/version&gt;
+&lt;/dependency&gt;</programlisting>
+  </section>
+</chapter>
