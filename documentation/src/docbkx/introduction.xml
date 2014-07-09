@@ -14,47 +14,32 @@
 <chapter id="chapter-introduction">
   <title>Introduction</title>
 
-  <para>The Geomajas SLD Project is a stand-alone project under the Geomajas
-  banner. It's goal is to provide a code for handling and manipulating SLD
-  data and files. The initial version of the SLD editor provides a minimal
-  editor and in-memory backend service that supports the following use
-  cases:</para>
+  <para>The Geomajas SLD Editor Project is a stand-alone project under the
+  Geomajas banner. </para>
+
+  <para>It's goal is to provide a code for handling and manipulating SLD data
+  and files. The initial version of the SLD editor provides a textual editor
+  and in-memory backend service that supports the following use cases:</para>
 
   <itemizedlist>
     <listitem>
-      <para>Open a list of SLD files and allow the user to select an SLD by
-      name</para>
+      <para>load an SLD file from a populated template list.</para>
     </listitem>
 
     <listitem>
-      <para>Show general information about the SLD: title and name</para>
+      <para>show syntax colored xml content in the editor.</para>
     </listitem>
 
     <listitem>
-      <para>Show the rules of the single FeatureTypeStyle of the SLD: name and
-      title of the rule</para>
+      <para>validate loaded SLD file.</para>
     </listitem>
 
     <listitem>
-      <para>Support reordering of the rules</para>
+      <para>edit xml content of the SLD file.</para>
     </listitem>
 
     <listitem>
-      <para>Support deletion and addition of a rule</para>
-    </listitem>
-
-    <listitem>
-      <para>Show the single symbolizer and (optional) filter of a rule</para>
-    </listitem>
-
-    <listitem>
-      <para>Support management of fills, strokes and image point
-      symbols</para>
-    </listitem>
-
-    <listitem>
-      <para>Support management of a subset of filters (single binary operator
-      combined with an optional NOT-operator)</para>
+      <para>save xml content of the SLD file.</para>
     </listitem>
   </itemizedlist>
 </chapter>

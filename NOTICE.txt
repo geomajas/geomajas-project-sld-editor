@@ -3,11 +3,7 @@ Copyright 2008-2014 Geosparc nv, http://www.geosparc.com/, Belgium.
 
 Copyright/license notices for dependent projects:
 
-GWTP
-    licenseName: Apache License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
- 
-Spring 
+Spring
     licenseName: Apache License, Version 2.0
     licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
 

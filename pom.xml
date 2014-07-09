@@ -1,8 +1,8 @@
-<!-- ~ This is part of Geomajas, a GIS framework, http://www.geomajas.org/. 
+<!-- ~ This is part of Geomajas, a GIS framework, http://www.geomajas.org/.
 	~ ~ Copyright 2008-2014 Geosparc nv, http://www.geosparc.com/, Belgium. ~
-	~ The program is available in open source according to the GNU Affero ~ General 
-	Public License. All contributions in this program are covered ~ by the Geomajas 
-	Contributors License Agreement. For full licensing ~ details, see LICENSE.txt 
+	~ The program is available in open source according to the GNU Affero ~ General
+	Public License. All contributions in this program are covered ~ by the Geomajas
+	Contributors License Agreement. For full licensing ~ details, see LICENSE.txt
 	in the project root. -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -21,7 +21,7 @@
 		Geomajas is a component framework for building rich Internet applications (RIA) with sophisticated capabilities
 		for the display, analysis and management of geographic information. It is a building block that allows
 		developers to add maps and other geographic data capabilities to their web applications.
-		
+
 		The SLD project is a standalone project that implements a communication, editing and persistence library for SLD (Styled Layer Descriptor) styles.
 	</description>
 
@@ -32,27 +32,24 @@
 	</scm>
 
 	<modules>
-<!-- Advanced editor - not available atm.
- 		<module>gwt</module>
-		<module>common-gwt</module>
- 		<module>puregwt</module>
-		<module>webapp</module> == sample
--->
 
 		<module>expert-common</module>
+
+		<!-- SmartGwt-->
 		<module>expert-gwt</module>
 		<module>expert-gwt-example-jar</module>
  		<module>expert-gwt-example</module>
 
-<!--
-  		<module>expert-gwt2</module>
+		<!-- Gwt 2 -->
+		<module>expert-gwt2</module>
 		<module>expert-gwt2-example-jar</module>
- 		<module>expert-gwt2-example</module>
--->
+		<module>expert-gwt2-example</module>
+
  	</modules>
 
 	<dependencyManagement>
 		<dependencies>
+
 			<dependency>
 				<groupId>org.geomajas.project</groupId>
 				<artifactId>geomajas-project-api-all</artifactId>
@@ -69,71 +66,60 @@
 				<scope>import</scope>
 			</dependency>
 
-<!-- Advanced editor - not available atm.
-			<dependency>
-				<groupId>org.geomajas.project</groupId>
-				<artifactId>geomajas-project-sld-editor-common-gwt</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geomajas.project</groupId>
-				<artifactId>geomajas-project-sld-editor-gwt</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geomajas.project</groupId>
-				<artifactId>geomajas-project-sld-editor-puregwt</artifactId>
-				<version>${project.version}</version>
-			</dependency>
--->
 			<dependency>
 				<groupId>org.geomajas.project</groupId>
 				<artifactId>geomajas-project-sld-editor-expert-common</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.geomajas.project</groupId>
 				<artifactId>geomajas-project-sld-editor-expert-gwt</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.geomajas.project</groupId>
 				<artifactId>geomajas-project-sld-editor-expert-gwt-example-jar</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-<!--
+
 			<dependency>
 				<groupId>org.geomajas.project</groupId>
 				<artifactId>geomajas-project-sld-editor-expert-gwt2</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.geomajas.project</groupId>
 				<artifactId>geomajas-project-sld-editor-expert-gwt2-example-jar</artifactId>
 				<version>${project.version}</version>
 			</dependency>
--->
 
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
 				<version>${sld-spring-version}</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-aop</artifactId>
 				<version>${sld-spring-version}</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-tx</artifactId>
 				<version>${sld-spring-version}</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-test</artifactId>
 				<version>${sld-spring-version}</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-webmvc</artifactId>
@@ -163,6 +149,7 @@
 				<artifactId>smartgwt</artifactId>
 				<version>3.1</version>
 			</dependency>
+
 			<dependency>
 				<groupId>com.smartgwt</groupId>
 				<artifactId>smartgwt-skins</artifactId>
@@ -198,6 +185,7 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
+
 			<dependency>
 				<groupId>org.apache.geronimo.specs</groupId>
 				<artifactId>geronimo-activation_1.1_spec</artifactId>
@@ -215,6 +203,7 @@
 				<artifactId>commons-beanutils</artifactId>
 				<version>1.8.3</version>
 			</dependency>
+
 			<dependency>
 				<groupId>commons-lang</groupId>
 				<artifactId>commons-lang</artifactId>
@@ -232,81 +221,18 @@
 				<version>${sld-jibx-version}</version>
 			</dependency>
 
-			<!-- TODO: needed? -->
-			<dependency>
-				<groupId>com.google.appengine</groupId>
-				<artifactId>appengine-api-1.0-sdk</artifactId>
-				<version>1.6.1</version>
-			</dependency>
-
-			<!-- GWTP -->
-			<dependency>
-				<groupId>com.gwtplatform</groupId>
-				<artifactId>gwtp-mvp-client</artifactId>
-				<version>${gwtp.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.gwtplatform</groupId>
-				<artifactId>gwtp-dispatch-client</artifactId>
-				<version>${gwtp.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.gwtplatform</groupId>
-				<artifactId>gwtp-dispatch-server-guice</artifactId>
-				<version>${gwtp.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.gwtplatform</groupId>
-				<artifactId>gwtp-dispatch-server-spring</artifactId>
-				<version>${gwtp.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.gwtplatform</groupId>
-				<artifactId>gwtp-processors</artifactId>
-				<version>${gwtp.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.gwtplatform</groupId>
-				<artifactId>gwtp-all</artifactId>
-				<version>${gwtp.version}</version>
-			</dependency>
-
-			<!-- DI dependencies -->
-			<dependency>
-				<groupId>com.google.inject</groupId>
-				<artifactId>guice</artifactId>
-				<version>${guice.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.google.inject.extensions</groupId>
-				<artifactId>guice-servlet</artifactId>
-				<version>${guice.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.google.inject.extensions</groupId>
-				<artifactId>guice-assistedinject</artifactId>
-				<version>${guice.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>aopalliance</groupId>
-				<artifactId>aopalliance</artifactId>
-				<version>${aopalliance.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.google.gwt.inject</groupId>
-				<artifactId>gin</artifactId>
-				<version>${gin.version}</version>
-			</dependency>
 			<dependency>
 				<groupId>commons-io</groupId>
 				<artifactId>commons-io</artifactId>
 				<version>2.4</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.jboss</groupId>
 				<artifactId>jboss-serialization</artifactId>
 				<version>1.0.4.FINAL</version>
 			</dependency>
+
 			<dependency>
 				<groupId>trove</groupId>
 				<artifactId>trove</artifactId>
@@ -330,11 +256,13 @@
 				<artifactId>gwt-user</artifactId>
 				<version>${sld-gwt-version}</version>
 			</dependency>
+
 			<dependency>
 				<groupId>com.google.gwt</groupId>
 				<artifactId>gwt-servlet</artifactId>
 				<version>${sld-gwt-version}</version>
 			</dependency>
+
 			<dependency>
 				<groupId>com.google.gwt</groupId>
 				<artifactId>gwt-dev</artifactId>
@@ -354,6 +282,7 @@
 				<artifactId>jukito</artifactId>
 				<version>${jukito.version}</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.mockito</groupId>
 				<artifactId>mockito-core</artifactId>
@@ -399,12 +328,8 @@
 
 		<sld-geomajas-build-tools-version>2.0.0</sld-geomajas-build-tools-version>
 
-		<gwtp.version>0.7</gwtp.version>
-		<gin.version>1.5.0</gin.version>
-		<guice.version>3.0</guice.version>
 		<jukito.version>1.1</jukito.version>
 		<mockito.version>1.8.5</mockito.version>
-		<aopalliance.version>1.0</aopalliance.version>
 		<codemirror.version>3.1.1</codemirror.version>
 	</properties>
 </project>

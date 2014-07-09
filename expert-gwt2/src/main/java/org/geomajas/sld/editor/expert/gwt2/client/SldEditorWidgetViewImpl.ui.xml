@@ -1,0 +1,46 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:c="urn:import:org.geomajas.codemirror.client.widget"
+             xmlns:cb="urn:import:org.geomajas.sld.editor.expert.gwt2.client">
+
+	<ui:with field="msg" type="org.geomajas.sld.editor.expert.common.client.i18n.SldEditorExpertMessages" />
+
+	<ui:with field="resource" type="org.geomajas.sld.editor.expert.gwt2.client.SldEditorWidgetResourceAlternative" />
+
+	<g:HTMLPanel>
+
+		<g:FlowPanel width="100%" styleName="{resource.css.sldEditorToolbar}">
+
+			<g:InlineLabel text="{msg.templateSelectTitle}" styleName="{resource.css.sldEditorToolbarElementTitle}" />
+
+			<g:ListBox ui:field="selectTemplate" title="{msg.templateSelectTooltip}" styleName="{resource.css.sldEditorToolbarElement}" />
+
+			<cb:SldEditorCustomToolBarButton ui:field="validateSld"
+			                                 resource="{resource.sldValidateButton}"
+			                                 text="{msg.validateButtonTitle}"
+			                                 styleName="{resource.css.sldEditorToolbarElement}"
+			                                 title="{msg.validateButtonTooltip}" />
+
+<!--			<cb:SldEditorCustomToolBarButton ui:field="saveSld"
+			                                 resource="{resource.sldSaveButton}"
+			                                 text="{msg.saveButtonTitle}"
+			                                 styleName="{resource.css.sldEditorToolbarElement}"
+			                                 title="{msg.saveButtonTooltip}" />-->
+
+			<cb:SldEditorCustomToolBarButton ui:field="cancelSld"
+			                                 resource="{resource.sldCancelButton}"
+			                                 text="{msg.cancelButtonTitle}"
+			                                 styleName="{resource.css.sldEditorToolbarElement}" />
+
+		</g:FlowPanel>
+
+		<g:HTMLPanel styleName="{resource.css.sldEditorCodeMirror}">
+
+			<c:CodeMirrorPanel ui:field="codeMirrorPanel" styleName="{resource.css.sldEditorBiggerText}" />
+
+		</g:HTMLPanel>
+
+	</g:HTMLPanel>
+
+</ui:UiBinder>
