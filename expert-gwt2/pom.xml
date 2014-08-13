@@ -1,8 +1,8 @@
-<!-- ~ This is part of Geomajas, a GIS framework, http://www.geomajas.org/. 
+<!-- ~ This is part of Geomajas, a GIS framework, http://www.geomajas.org/.
 	~ ~ Copyright 2008-2014 Geosparc nv, http://www.geosparc.com/, Belgium. ~
-	~ The program is available in open source according to the GNU Affero ~ General 
-	Public License. All contributions in this program are covered ~ by the Geomajas 
-	Contributors License Agreement. For full licensing ~ details, see LICENSE.txt 
+	~ The program is available in open source according to the GNU Affero ~ General
+	Public License. All contributions in this program are covered ~ by the Geomajas
+	Contributors License Agreement. For full licensing ~ details, see LICENSE.txt
 	in the project root. -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -44,13 +44,13 @@
   			<groupId>org.geomajas</groupId>
   			<artifactId>geomajas-face-common-gwt</artifactId>
 		</dependency>
-       
+
 		<dependency>
 		    <groupId>org.geomajas</groupId>
 		    <artifactId>geomajas-face-common-gwt</artifactId>
 		    <classifier>sources</classifier>
 		</dependency>
-		
+
 		<dependency>
 		    <groupId>org.geomajas</groupId>
 		    <artifactId>geomajas-client-gwt2-impl</artifactId>
@@ -60,13 +60,13 @@
 		    <groupId>org.geomajas.plugin</groupId>
 		    <artifactId>geomajas-widget-gwt2-core</artifactId>
 		</dependency>
-		
+
 		<dependency>
 		    <groupId>org.geomajas.plugin</groupId>
 		    <artifactId>geomajas-widget-gwt2-core</artifactId>
 		    <classifier>sources</classifier>
 		</dependency>
-		
+
 		<!-- DI dependencies -->
 		<dependency>
 			<groupId>com.google.inject</groupId>

@@ -1,8 +1,8 @@
-<!-- ~ This is part of Geomajas, a GIS framework, http://www.geomajas.org/. 
+<!-- ~ This is part of Geomajas, a GIS framework, http://www.geomajas.org/.
 	~ ~ Copyright 2008-2014 Geosparc nv, http://www.geosparc.com/, Belgium. ~
-	~ The program is available in open source according to the GNU Affero ~ General 
-	Public License. All contributions in this program are covered ~ by the Geomajas 
-	Contributors License Agreement. For full licensing ~ details, see LICENSE.txt 
+	~ The program is available in open source according to the GNU Affero ~ General
+	Public License. All contributions in this program are covered ~ by the Geomajas
+	Contributors License Agreement. For full licensing ~ details, see LICENSE.txt
 	in the project root. -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -21,7 +21,7 @@
 		Geomajas is a component framework for building rich Internet applications (RIA) with sophisticated capabilities
 		for the display, analysis and management of geographic information. It is a building block that allows
 		developers to add maps and other geographic data capabilities to their web applications.
-		
+
 		The SLD project is a standalone project that implements a communication, editing and persistence library for SLD (Styled Layer Descriptor) styles.
 	</description>
 
@@ -40,15 +40,17 @@
 -->
 
 		<module>expert-common</module>
+
 		<module>expert-gwt</module>
 		<module>expert-gwt-example-jar</module>
  		<module>expert-gwt-example</module>
 
-<!--
-  		<module>expert-gwt2</module>
+<!--  		<module>expert-gwt2</module>
 		<module>expert-gwt2-example-jar</module>
- 		<module>expert-gwt2-example</module>
--->
+ 		<module>expert-gwt2-example</module>-->
+
+		<module>documentation</module>
+		<module>javadoc</module>
  	</modules>
 
 	<dependencyManagement>
@@ -364,23 +366,6 @@
 	</dependencyManagement>
 
 	<profiles>
-		<profile>
-			<id>documentation</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<modules>
-				<module>documentation</module>
-			</modules>
-		</profile>
-		<profile>
-			<id>skipDocs</id>
-			<activation>
-				<property>
-					<name>skipDocs</name>
-				</property>
-			</activation>
-		</profile>
 		<profile>
 			<id>m2e</id>
 			<activation>
