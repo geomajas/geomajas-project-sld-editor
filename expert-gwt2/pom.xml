@@ -40,6 +40,55 @@
 			<artifactId>geomajas-project-codemirror-gwt</artifactId>
 		</dependency>
 
+		 <dependency>
+  			<groupId>org.geomajas</groupId>
+  			<artifactId>geomajas-face-common-gwt</artifactId>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.geomajas</groupId>
+		    <artifactId>geomajas-face-common-gwt</artifactId>
+		    <classifier>sources</classifier>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.geomajas</groupId>
+		    <artifactId>geomajas-client-gwt2-impl</artifactId>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.geomajas.plugin</groupId>
+		    <artifactId>geomajas-widget-gwt2-core</artifactId>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.geomajas.plugin</groupId>
+		    <artifactId>geomajas-widget-gwt2-core</artifactId>
+		    <classifier>sources</classifier>
+		</dependency>
+
+		<!-- DI dependencies -->
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-servlet</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-assistedinject</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>aopalliance</groupId>
+			<artifactId>aopalliance</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt.inject</groupId>
+			<artifactId>gin</artifactId>
+		</dependency>
+
 		<!-- other -->
 		<dependency>
 			<groupId>commons-io</groupId>

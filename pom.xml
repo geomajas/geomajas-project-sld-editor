@@ -43,8 +43,10 @@
 		<!-- Gwt 2 -->
 		<module>expert-gwt2</module>
 		<module>expert-gwt2-example-jar</module>
-		<module>expert-gwt2-example</module>
+ 		<module>expert-gwt2-example</module>-->
 
+		<module>documentation</module>
+		<module>javadoc</module>
  	</modules>
 
 	<dependencyManagement>
@@ -293,23 +295,6 @@
 	</dependencyManagement>
 
 	<profiles>
-		<profile>
-			<id>documentation</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<modules>
-				<module>documentation</module>
-			</modules>
-		</profile>
-		<profile>
-			<id>skipDocs</id>
-			<activation>
-				<property>
-					<name>skipDocs</name>
-				</property>
-			</activation>
-		</profile>
 		<profile>
 			<id>m2e</id>
 			<activation>
