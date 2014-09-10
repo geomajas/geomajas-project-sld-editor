@@ -43,7 +43,7 @@
 		<!-- Gwt 2 -->
 		<module>expert-gwt2</module>
 		<module>expert-gwt2-example-jar</module>
- 		<module>expert-gwt2-example</module>-->
+		<module>expert-gwt2-example</module>
 
 		<module>documentation</module>
 		<module>javadoc</module>
