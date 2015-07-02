@@ -15,8 +15,8 @@ public class InMemorySldServiceTest {
 		RawSld sld = new RawSld();
 		sld.setXml("<a att1=\"a1\"  att2=\"a2\"    ><b></b></a>");
 		sld = service.format(sld);
-		// header + attributes wrapped + indentation !!!
-		Assert.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + 
+		// attributes wrapped + indentation !!!
+		Assert.assertEquals(
 				"<a\n" + 
 				"    att1=\"a1\"\n" + 
 				"    att2=\"a2\">\n" + 
