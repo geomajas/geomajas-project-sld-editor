@@ -17,8 +17,9 @@
 	<!-- @extract-skip-end -->
 	<inherits name="com.smartgwt.tools.SmartGwtTools"/>
 	<inherits name="org.geomajas.gwt.GeomajasClient"/>
-	<inherits name="com.smartclient.theme.enterprise.Enterprise"/>
-
+	<inherits name="com.smartgwt.SmartGwtNoScript"/>
+	<inherits name="com.smartclient.theme.enterprise.EnterpriseResources"/>
+	<set-configuration-property name='xsiframe.failIfScriptTag' value='FALSE'/>
 	<!-- @extract-skip-start -->
 
 	<!-- add required languages

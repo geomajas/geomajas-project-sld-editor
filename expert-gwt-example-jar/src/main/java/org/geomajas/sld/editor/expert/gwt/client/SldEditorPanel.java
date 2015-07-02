@@ -10,12 +10,13 @@
  */
 package org.geomajas.sld.editor.expert.gwt.client;
 
-import com.smartgwt.client.widgets.Canvas;
-import com.smartgwt.client.widgets.HTMLFlow;
-import com.smartgwt.client.widgets.Window;
 import org.geomajas.gwt.example.base.SamplePanel;
 import org.geomajas.gwt.example.base.SamplePanelFactory;
 import org.geomajas.sld.editor.expert.common.client.SldEditorWidget;
+
+import com.smartgwt.client.widgets.Canvas;
+import com.smartgwt.client.widgets.HTMLFlow;
+import com.smartgwt.client.widgets.Window;
 
 /**
  * Entry point of SmartGWT SLD editor.
@@ -58,19 +59,24 @@ public class SldEditorPanel extends SamplePanel {
 	@Override
 	public Canvas getViewPanel() {
 
-		Window window = new Window();
+		final Window window = new Window();
 
 		window.setAutoCenter(true);
 		window.setShowMinimizeButton(false);
 		window.setShowCloseButton(true);
-		window.setAutoSize(true);
-
+		window.setCanDragResize(true);
+		window.setShowResizer(true);
+		window.setSize("700px", "400px");
+		
 		// Create a new Sld Editor Widget.
 		SldEditorWidget widget = new SldEditorWidget();
 
 		window.addItem(widget.asWidget());
 
 		window.show();
+
+		
+
 
 		return getBackgroundDecoration();
 

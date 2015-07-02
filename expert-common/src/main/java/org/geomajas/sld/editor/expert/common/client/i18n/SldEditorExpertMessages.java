@@ -24,10 +24,17 @@ public interface SldEditorExpertMessages extends Messages {
 
 	String saveButtonTitle();
 	String saveButtonTooltip();
+	
 	String validateButtonTitle();
 	String validateButtonTooltip();
 	String validationFailed();
 	String validationSucceeded();
+	
+	String formatButtonTitle();
+	String formatButtonTooltip();
+	String formatFailed();
+	String formatSucceeded();
+
 	String cancelButtonTitle();
 
 	String templateSelectTitle();

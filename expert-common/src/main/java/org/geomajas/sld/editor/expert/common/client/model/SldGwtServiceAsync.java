@@ -31,6 +31,8 @@ public interface SldGwtServiceAsync {
 
 	void validate(RawSld raw, AsyncCallback<Boolean> callback);
 
+	void format(RawSld raw, AsyncCallback<RawSld> callback);
+
 	void convertRawToDescriptor(RawSld raw, AsyncCallback<StyledLayerDescriptorInfo> callback);
 
 	void convertDescriptorToRaw(StyledLayerDescriptorInfo sldi, AsyncCallback<RawSld> callback);

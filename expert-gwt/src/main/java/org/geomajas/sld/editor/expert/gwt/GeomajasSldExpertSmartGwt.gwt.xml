@@ -11,7 +11,7 @@
 <module>
 	<inherits name="com.google.gwt.user.User"/>
 	<inherits name="com.google.gwt.i18n.I18N"/>
-	<inherits name='com.smartgwt.SmartGwtNoTheme'/>
+	<inherits name='com.smartgwt.SmartGwtNoScript'/>
 
  	<inherits name="org.geomajas.sld.editor.expert.common.GeomajasSldExpertCommon"/>
 

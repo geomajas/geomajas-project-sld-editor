@@ -11,12 +11,10 @@
 <module>
 	<inherits name="org.geomajas.gwt.example.ExampleBase"/>
 
-	<inherits name='com.smartgwt.SmartGwt'/>
-	<inherits name="com.smartclient.theme.enterprise.Enterprise"/>
+	<inherits name='com.smartgwt.SmartGwtNoScript'/>
+	<inherits name="com.smartclient.theme.enterprise.EnterpriseResources"/>
 
 	<inherits name="org.geomajas.sld.editor.expert.gwt.GeomajasSldExpertSmartGwt"/>
-	<!-- using SmartGwt (without theme) -->
-    <inherits name="com.smartclient.theme.enterprise.Enterprise"/>  <!--include enterprise theme -->
 
 	<extend-property name="locale" values="nl" />
 	<extend-property name="locale" values="en"/>

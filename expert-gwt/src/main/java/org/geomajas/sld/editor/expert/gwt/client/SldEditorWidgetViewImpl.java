@@ -10,20 +10,9 @@
  */
 package org.geomajas.sld.editor.expert.gwt.client;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.user.client.Command;
-import com.google.gwt.user.client.ui.Widget;
-import com.smartgwt.client.util.SC;
-import com.smartgwt.client.widgets.events.ClickEvent;
-import com.smartgwt.client.widgets.events.ClickHandler;
-import com.smartgwt.client.widgets.form.fields.SelectItem;
-import com.smartgwt.client.widgets.form.fields.events.ChangeEvent;
-import com.smartgwt.client.widgets.form.fields.events.ChangeHandler;
-import com.smartgwt.client.widgets.layout.VLayout;
-import com.smartgwt.client.widgets.toolbar.ToolStrip;
-import com.smartgwt.client.widgets.toolbar.ToolStripButton;
+import java.util.LinkedHashMap;
+import java.util.List;
+
 import org.geomajas.codemirror.client.widget.CodeMirrorPanel;
 import org.geomajas.sld.editor.expert.common.client.SldEditor;
 import org.geomajas.sld.editor.expert.common.client.SldEditorWidgetPresenter;
@@ -32,8 +21,21 @@ import org.geomajas.sld.editor.expert.common.client.SldEditorWidgetView;
 import org.geomajas.sld.editor.expert.common.client.domain.SldInfo;
 import org.geomajas.sld.editor.expert.common.client.i18n.SldEditorExpertMessages;
 
-import java.util.LinkedHashMap;
-import java.util.List;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.user.client.Command;
+import com.google.gwt.user.client.ui.Widget;
+import com.smartgwt.client.util.SC;
+import com.smartgwt.client.widgets.WidgetCanvas;
+import com.smartgwt.client.widgets.events.ClickEvent;
+import com.smartgwt.client.widgets.events.ClickHandler;
+import com.smartgwt.client.widgets.form.fields.SelectItem;
+import com.smartgwt.client.widgets.form.fields.events.ChangeEvent;
+import com.smartgwt.client.widgets.form.fields.events.ChangeHandler;
+import com.smartgwt.client.widgets.layout.VLayout;
+import com.smartgwt.client.widgets.toolbar.ToolStrip;
+import com.smartgwt.client.widgets.toolbar.ToolStripButton;
 
 /**
  * Implementation of {@link org.geomajas.sld.editor.expert.common.client.SldEditorWidgetView}.
@@ -45,7 +47,7 @@ public class SldEditorWidgetViewImpl implements SldEditorWidgetView {
 
 	private SldEditorExpertMessages msg = GWT.create(SldEditorExpertMessages.class);
 
-	/*private Window widget;*/
+	/* private Window widget; */
 
 	private VLayout widget;
 
@@ -95,33 +97,36 @@ public class SldEditorWidgetViewImpl implements SldEditorWidgetView {
 	 */
 	public VLayout createSldEditorLayout() {
 
-		VLayout vLayout = new VLayout();
+		final VLayout vLayout = new VLayout();
 
 		toolStrip = new ToolStrip();
-		toolStrip.setWidth(650);
+		toolStrip.setWidth100();
 
 		codeMirrorPanel = new CodeMirrorPanel();
-		codeMirrorPanel.setWidth("650px");
-		codeMirrorPanel.setHeight("400px");
+		WidgetCanvas canvas = new WidgetCanvas(codeMirrorPanel);
+		canvas.setWidth100();
+		canvas.setHeight100();
 
 		vLayout.addMember(toolStrip);
-		vLayout.addMember(codeMirrorPanel);
+		vLayout.addMember(canvas);
 
-/*		ToolStripButton saveButton = new ToolStripButton();
+		ToolStripButton saveButton = new ToolStripButton();
 		saveButton.setIcon("[ISOMORPHIC]/" + "icons/silk/disk.png");
 		saveButton.setTitle(msg.saveButtonTitle());
 		saveButton.setTooltip(msg.saveButtonTooltip());
 		saveButton.addClickHandler(new ClickHandler() {
+
 			@Override
 			public void onClick(ClickEvent clickEvent) {
 				presenter.onSaveButton();
 			}
-		});*/
+		});
 
 		ToolStripButton cancelButton = new ToolStripButton();
 		cancelButton.setIcon("[ISOMORPHIC]/" + "icons/silk/cancel.png");
 		cancelButton.setTitle(msg.cancelButtonTitle());
 		cancelButton.addClickHandler(new ClickHandler() {
+
 			@Override
 			public void onClick(ClickEvent clickEvent) {
 				presenter.onCancelButton();
@@ -133,9 +138,21 @@ public class SldEditorWidgetViewImpl implements SldEditorWidgetView {
 		validateButton.setTitle(msg.validateButtonTitle());
 		validateButton.setTooltip(msg.validateButtonTooltip());
 		validateButton.addClickHandler(new ClickHandler() {
+
 			@Override
 			public void onClick(ClickEvent clickEvent) {
 				presenter.onValidateButton();
+			}
+		});
+
+		ToolStripButton formatBtn = new ToolStripButton();
+		formatBtn.setIcon("[ISOMORPHIC]/" + "icons/silk/text_align_left.png");
+		formatBtn.setTitle(msg.formatButtonTitle());
+		formatBtn.setTooltip(msg.formatButtonTooltip());
+		formatBtn.addClickHandler(new ClickHandler() {
+
+			public void onClick(ClickEvent event) {
+				presenter.onFormatButton();
 			}
 		});
 
@@ -144,6 +161,7 @@ public class SldEditorWidgetViewImpl implements SldEditorWidgetView {
 		selectTemplate.setTooltip(msg.templateSelectTooltip());
 		selectTemplate.setWidth(200);
 		selectTemplate.addChangeHandler(new ChangeHandler() {
+
 			@Override
 			public void onChange(ChangeEvent changeEvent) {
 				presenter.onTemplateSelect((String) changeEvent.getValue());
@@ -151,9 +169,12 @@ public class SldEditorWidgetViewImpl implements SldEditorWidgetView {
 		});
 
 		toolStrip.addFormItem(selectTemplate);
+		toolStrip.addButton(saveButton);
 		toolStrip.addButton(validateButton);
-		/*toolStrip.addSeparator();
-		toolStrip.addButton(saveButton);*/
+		toolStrip.addButton(formatBtn);
+		/*
+		 * toolStrip.addSeparator(); toolStrip.addButton(saveButton);
+		 */
 		toolStrip.addFill();
 		toolStrip.addButton(cancelButton);
 
@@ -179,6 +200,7 @@ public class SldEditorWidgetViewImpl implements SldEditorWidgetView {
 	public void setSldTemplates(final List<SldInfo> sldTemplates) {
 
 		Scheduler.get().scheduleDeferred(new Command() {
+
 			public void execute() {
 
 				LinkedHashMap<String, String> data = new LinkedHashMap<String, String>();

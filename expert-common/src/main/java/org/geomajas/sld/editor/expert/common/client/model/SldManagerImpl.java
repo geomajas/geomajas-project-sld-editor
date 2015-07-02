@@ -10,13 +10,14 @@
  */
 package org.geomajas.sld.editor.expert.common.client.model;
 
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.web.bindery.event.shared.EventBus;
-import com.google.web.bindery.event.shared.HandlerRegistration;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.geomajas.sld.StyledLayerDescriptorInfo;
 import org.geomajas.sld.editor.expert.common.client.domain.RawSld;
 import org.geomajas.sld.editor.expert.common.client.domain.SldInfo;
+import org.geomajas.sld.editor.expert.common.client.event.SldFormattedEvent;
 import org.geomajas.sld.editor.expert.common.client.event.SldSaveEvent;
 import org.geomajas.sld.editor.expert.common.client.event.SldSaveEvent.HasSldSaveHandlers;
 import org.geomajas.sld.editor.expert.common.client.event.SldSaveEvent.SldSaveHandler;
@@ -28,9 +29,10 @@ import org.geomajas.sld.editor.expert.common.client.event.TemplateLoadedEvent.Ha
 import org.geomajas.sld.editor.expert.common.client.event.TemplateLoadedEvent.TemplateLoadedHandler;
 import org.geomajas.sld.editor.expert.common.client.event.TemplateNamesLoadedEvent;
 
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.web.bindery.event.shared.EventBus;
+import com.google.web.bindery.event.shared.HandlerRegistration;
 
 /**
  * Default implementation of {@link SldManager}.
@@ -118,6 +120,20 @@ public class SldManagerImpl implements SldManager, HasTemplateLoadedHandlers, Ha
 				} else {
 					onFailure(null);
 				}
+			}
+		});
+	}
+
+	public void formatCurrent() {
+		service.format(model.getRawSld(), new AsyncCallback<RawSld>() {
+
+			public void onFailure(Throwable caught) {
+				SldFormattedEvent.fireNotFormatted(SldManagerImpl.this);
+			}
+
+			public void onSuccess(RawSld result) {
+				model.setRawSld(result);
+				SldFormattedEvent.fireFormatted(SldManagerImpl.this);
 			}
 		});
 	}

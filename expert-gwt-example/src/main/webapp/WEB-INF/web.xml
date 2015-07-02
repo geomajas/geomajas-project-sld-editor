@@ -38,8 +38,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				classpath*:META-INF/geomajasWebContext.xml
-				classpath*:META-INF/geomajasWebContext*.xml
+				classpath:org/geomajas/spring/geomajasWebContext.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>3</load-on-startup>

@@ -48,6 +48,11 @@ public interface SldManager {
 	void validateCurrent(boolean saveAfterValidation);
 
 	/**
+	 * Format the current SLD (asynchronously). Will throw Formatted event.
+	 */
+	void formatCurrent();
+
+	/**
 	 * Convert a {@link StyledLayerDescriptorInfo} to rawXml so it can be used with this editor.
 	 *
 	 * @param sldi

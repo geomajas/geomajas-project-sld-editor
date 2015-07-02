@@ -26,8 +26,6 @@ public class SldEditorWidget implements IsWidget {
 
 	private SldEditorWidgetView view;
 
-	private SldEditorWidgetPresenter presenter;
-
 	/**
 	 * SldEditorWidget constructor.
 	 */
@@ -43,12 +41,22 @@ public class SldEditorWidget implements IsWidget {
 	 */
 	public SldEditorWidget(SldEditorWidgetView view) {
 		this.view = view;
-		presenter = new SldEditorWidgetPresenterImpl(view);
+		new SldEditorWidgetPresenterImpl(view);
 	}
 
 	@Override
 	public Widget asWidget() {
 		return view.asWidget();
+	}
+
+	/**
+	 * Get the view part.
+	 * 
+	 * @return
+	 */
+	@Api
+	public SldEditorWidgetView getView() {
+		return view;
 	}
 
 }

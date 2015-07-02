@@ -30,6 +30,8 @@ public interface SldGwtService extends RemoteService {
 	RawSld findTemplateByName(String name) throws SldException;
 
 	boolean validate(RawSld raw) throws SldException;
+	
+	RawSld format(RawSld raw) throws SldException;
 
 	StyledLayerDescriptorInfo convertRawToDescriptor(RawSld raw) throws SldException;
 
