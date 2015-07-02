@@ -48,8 +48,11 @@ public class SldEditorWidgetViewImpl implements SldEditorWidgetView {
 	@UiField
 	protected SldEditorCustomToolBarButton validateSld;
 
-/*	@UiField
-	protected SldEditorCustomToolBarButton saveSld;*/
+	@UiField
+	protected SldEditorCustomToolBarButton saveSld;
+
+	@UiField
+	protected SldEditorCustomToolBarButton formatSld;
 
 	@UiField
 	protected SldEditorCustomToolBarButton cancelSld;
@@ -118,14 +121,23 @@ public class SldEditorWidgetViewImpl implements SldEditorWidgetView {
 			}
 		});
 
-/*		saveSld.addClickHandler(new ClickHandler() {
+		saveSld.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
 
 				presenter.onSaveButton();
 
 			}
-		});*/
+		});
+
+		formatSld.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+
+				presenter.onFormatButton();
+
+			}
+		});
 
 		cancelSld.addClickHandler(new ClickHandler() {
 			@Override

@@ -16,7 +16,6 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.geomajas.project</groupId>
 	<artifactId>geomajas-project-sld-editor-expert-gwt-example-jar</artifactId>
 	<packaging>jar</packaging>
 	<name>Geomajas Expert SLD Editor GWT example code</name>
@@ -24,13 +23,6 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>org.geomajas.project</groupId>
-				<artifactId>geomajas-project-client-gwt</artifactId>
-				<version>1.15.0-M4</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
 			<dependency>
 				<groupId>xml-apis</groupId>
 				<artifactId>xml-apis</artifactId>

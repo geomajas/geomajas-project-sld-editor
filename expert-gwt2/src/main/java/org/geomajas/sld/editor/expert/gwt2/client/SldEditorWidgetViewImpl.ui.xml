@@ -22,11 +22,17 @@
 			                                 styleName="{resource.css.sldEditorToolbarElement}"
 			                                 title="{msg.validateButtonTooltip}" />
 
-<!--			<cb:SldEditorCustomToolBarButton ui:field="saveSld"
+			<cb:SldEditorCustomToolBarButton ui:field="saveSld"
 			                                 resource="{resource.sldSaveButton}"
 			                                 text="{msg.saveButtonTitle}"
 			                                 styleName="{resource.css.sldEditorToolbarElement}"
-			                                 title="{msg.saveButtonTooltip}" />-->
+			                                 title="{msg.saveButtonTooltip}" />
+			                                 
+			<cb:SldEditorCustomToolBarButton ui:field="formatSld"
+			                                 resource="{resource.sldSaveButton}"
+			                                 text="{msg.formatButtonTitle}"
+			                                 styleName="{resource.css.sldEditorToolbarElement}"
+			                                 title="{msg.formatButtonTooltip}" />
 
 			<cb:SldEditorCustomToolBarButton ui:field="cancelSld"
 			                                 resource="{resource.sldCancelButton}"
