@@ -14,7 +14,7 @@ import org.geomajas.sld.editor.expert.common.client.model.SldManager;
 import org.geomajas.sld.editor.expert.common.client.model.SldManagerImpl;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.shared.SimpleEventBus;
+import com.google.gwt.event.shared.EventBus;
 
 /**
  * Widget Factory class.
@@ -36,7 +36,7 @@ public final class SldEditor {
 
 	private SldManager sldManager;
 	
-	private SimpleEventBus eventBus;
+	private EventBus eventBus;
 
 	/**
 	 * SldEditor Constructor.
@@ -113,14 +113,14 @@ public final class SldEditor {
 		return sldEditorServiceFactory;
 	}
 	
-	public SimpleEventBus getEventBus() {
+	public EventBus getEventBus() {
 		if (eventBus == null) {
 			eventBus = getSldEditorEventBusFactory().createSldEditorWidgetEventBus();
 		}
 		return eventBus;
 	}
 	
-	public void setEventBus(SimpleEventBus eventBus) {
+	public void setEventBus(EventBus eventBus) {
 		this.eventBus = eventBus;
 	}
 

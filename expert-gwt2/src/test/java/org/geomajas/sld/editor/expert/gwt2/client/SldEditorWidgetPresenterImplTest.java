@@ -10,22 +10,25 @@
  */
 package org.geomajas.sld.editor.expert.gwt2.client;
 
-import com.google.gwtmockito.GwtMockitoTestRunner;
-import com.google.web.bindery.event.shared.EventBus;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import org.geomajas.sld.editor.expert.common.client.SldEditor;
 import org.geomajas.sld.editor.expert.common.client.SldEditorWidgetPresenter;
 import org.geomajas.sld.editor.expert.common.client.SldEditorWidgetPresenterImpl;
 import org.geomajas.sld.editor.expert.common.client.SldEditorWidgetView;
+import org.geomajas.sld.editor.expert.common.client.event.SldCancelEvent;
 import org.geomajas.sld.editor.expert.common.client.model.SldGwtServiceAsync;
 import org.geomajas.sld.editor.expert.common.client.model.SldManager;
-import org.geomajas.sld.editor.expert.common.client.model.SldModel;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Answers;
 import org.mockito.Mock;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import com.google.gwtmockito.GwtMockitoTestRunner;
+import com.google.web.bindery.event.shared.EventBus;
 
 /**
  * Sld Editor Widget Presenter Unit Test class.
@@ -48,11 +51,8 @@ public class SldEditorWidgetPresenterImplTest {
 	@Mock
 	private EventBus eventBus;
 
-	@Mock
+	@Mock(answer=Answers.RETURNS_DEEP_STUBS)
 	private SldManager sldManager;
-
-	@Mock
-	private SldModel sldModel;
 
 	private SldEditorWidgetPresenter presenter;
 
@@ -60,12 +60,8 @@ public class SldEditorWidgetPresenterImplTest {
 	public void PrepareTest() {
 
 		SldEditor.setInstance(sldEditor);
-
 		when(sldEditor.getSldManager()).thenReturn(sldManager);
 		when(sldManager.getEventBus()).thenReturn(eventBus);
-		when(sldEditor.getSldManager().getModel()).thenReturn(sldModel);
-
-		when(view.getSldData()).thenReturn("<test-xml></test-xml>");
 
 		presenter = new SldEditorWidgetPresenterImpl(view);
 
@@ -75,15 +71,17 @@ public class SldEditorWidgetPresenterImplTest {
 	public void onCancelButtonTest() {
 
 		presenter.onCancelButton();
-		verify(view).showMessage("sldCancelMessage");
+		verify(eventBus).fireEvent(any(SldCancelEvent.class));
 
 	}
 
 	@Test
 	public void onSaveButtonTest() {
-
+		
+		when(view.getSldData()).thenReturn("<a/>");
 		presenter.onSaveButton();
-		verify(view).showMessage("sldSaveMessage");
+		verify(sldManager.getModel().getRawSld()).setXml("<a/>");
+		verify(sldManager).validateCurrent(true);
 
 	}
 
