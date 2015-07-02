@@ -15,8 +15,13 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
+
 import org.geomajas.gwt2.example.base.client.sample.SamplePanel;
+import org.geomajas.sld.editor.expert.common.client.SldEditor;
 import org.geomajas.sld.editor.expert.common.client.SldEditorWidget;
+import org.geomajas.sld.editor.expert.common.client.event.SldCancelEvent;
+import org.geomajas.sld.editor.expert.common.client.event.SldSaveEvent;
+import org.geomajas.sld.editor.expert.common.client.i18n.SldEditorExpertMessages;
 
 /**
  * Entry point of Gwt2 SLD editor.
@@ -24,6 +29,9 @@ import org.geomajas.sld.editor.expert.common.client.SldEditorWidget;
  * @author David Debuck
  */
 public class SldEditorPanel implements SamplePanel {
+	
+
+	private SldEditorExpertMessages msg = GWT.create(SldEditorExpertMessages.class);
 
 	/**
 	 * UI binder for this widget.
@@ -46,8 +54,26 @@ public class SldEditorPanel implements SamplePanel {
 	public SldEditorPanel() {
 
 		layout = UI_BINDER.createAndBindUi(this);
+		final SldEditorWidget widget = new SldEditorWidget();
+		SldEditor.getInstance().getEventBus().addHandler(SldSaveEvent.getType(), new SldSaveEvent.SldSaveHandler() {
+			
+			@Override
+			public void onSldSave(SldSaveEvent event) {
+				widget.getView().showMessage(msg.sldSaveMessage());			
+			}
+		});
+		
+		SldEditor.getInstance().getEventBus()
+				.addHandler(SldCancelEvent.getType(), new SldCancelEvent.SldCancelHandler() {
 
-		panel.add(new SldEditorWidget());
+					@Override
+					public void onSldCancel(SldCancelEvent event) {
+						widget.getView().showMessage(msg.sldCancelMessage());
+						widget.getView().cancelButtonEvent();
+					}
+				});
+
+		panel.add(widget);
 
 	}
 
