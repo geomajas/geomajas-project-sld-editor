@@ -23,30 +23,6 @@
 	<description>Expert SLD Editor GWT 2 example application</description>
 	<url>http://www.geomajas.org/</url>
 
-	<dependencyManagement>
-		<dependencies>
-
-			<dependency>
-				<groupId>org.geomajas</groupId>
-				<artifactId>geomajas-client-gwt2-example-base</artifactId>
-			</dependency>
-
-			<dependency>
-				<groupId>commons-codec</groupId>
-				<artifactId>commons-codec</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.httpcomponents</groupId>
-				<artifactId>httpclient</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>commons-collections</groupId>
-				<artifactId>commons-collections</artifactId>
-			</dependency>
-		</dependencies>
-
-	</dependencyManagement>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
