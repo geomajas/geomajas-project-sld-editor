@@ -47,8 +47,6 @@ public class SldEditorWidgetViewImpl implements SldEditorWidgetView {
 
 	private SldEditorExpertMessages msg = GWT.create(SldEditorExpertMessages.class);
 
-	/* private Window widget; */
-
 	private VLayout widget;
 
 	private SldEditorWidgetPresenter presenter;
@@ -58,8 +56,6 @@ public class SldEditorWidgetViewImpl implements SldEditorWidgetView {
 	private ToolStrip toolStrip;
 
 	private SelectItem selectTemplate;
-
-	private static final MyUiBinder UIBINDER = GWT.create(MyUiBinder.class);
 
 	/**
 	 * UI binder interface.

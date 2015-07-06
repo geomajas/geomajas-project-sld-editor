@@ -13,7 +13,7 @@ package org.geomajas.sld.editor.expert.gwt2.client;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.SimpleLayoutPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 import org.geomajas.gwt2.example.base.client.sample.SamplePanel;
@@ -44,7 +44,7 @@ public class SldEditorPanel implements SamplePanel {
 	private static final MyUiBinder UI_BINDER = GWT.create(MyUiBinder.class);
 
 	@UiField
-	protected HTMLPanel panel;
+	protected SimpleLayoutPanel panel;
 
 	private Widget layout;
 
@@ -73,7 +73,7 @@ public class SldEditorPanel implements SamplePanel {
 					}
 				});
 
-		panel.add(widget);
+		panel.setWidget(widget);
 
 	}
 

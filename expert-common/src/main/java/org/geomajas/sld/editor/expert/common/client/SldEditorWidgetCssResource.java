@@ -10,8 +10,9 @@
  */
 package org.geomajas.sld.editor.expert.common.client;
 
-import com.google.gwt.resources.client.CssResource;
 import org.geomajas.annotation.Api;
+
+import com.google.gwt.resources.client.CssResource;
 
 /**
  * Interface for the Sld Editor Widget Resource.
@@ -24,24 +25,43 @@ import org.geomajas.annotation.Api;
 public interface SldEditorWidgetCssResource extends CssResource {
 
 	/**
-	 * Css class.
-	 * @return String
+	 * Css style.
+	 * 
+	 * @return
 	 */
-	@ClassName("gm-sldEditorToolStrip")
-	String sldEditorToolStrip();
+	@ClassName("gm-sldEditorToolbar")
+	String sldEditorToolbar();
 
 	/**
-	 * Css class.
-	 * @return String
+	 * Css style.
+	 * 
+	 * @return
 	 */
-	@ClassName("gm-sldEditorCodeMirrorPanel")
-	String sldEditorCodeMirrorPanel();
+	@ClassName("gm-sldEditorToolbarElementTitle")
+	String sldEditorToolbarElementTitle();
 
 	/**
-	 * Css class.
-	 * @return String
+	 * Css style.
+	 * 
+	 * @return
 	 */
-	@ClassName("gm-sldEditorSelectTemplateListBox")
-	String sldEditorSelectTemplateListBox();
+	@ClassName("gm-sldEditorToolbarElement")
+	String sldEditorToolbarElement();
+
+	/**
+	 * Css style.
+	 * 
+	 * @return
+	 */
+	@ClassName("gm-sldEditorText")
+	String sldEditorText();
+
+	/**
+	 * Css style.
+	 * 
+	 * @return
+	 */
+	@ClassName("gm-sldEditorCodeMirror")
+	String sldEditorCodeMirror();
 
 }

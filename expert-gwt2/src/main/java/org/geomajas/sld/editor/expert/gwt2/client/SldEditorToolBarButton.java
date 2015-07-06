@@ -22,14 +22,14 @@ import com.google.gwt.user.client.ui.Image;
  * @author David Debuck
  *
  */
-public class SldEditorCustomToolBarButton extends Button {
+public class SldEditorToolBarButton extends Button {
 
 	private String text;
 
 	/**
 	 * Constructor.
 	 */
-	public SldEditorCustomToolBarButton() {
+	public SldEditorToolBarButton() {
 		super();
 	}
 

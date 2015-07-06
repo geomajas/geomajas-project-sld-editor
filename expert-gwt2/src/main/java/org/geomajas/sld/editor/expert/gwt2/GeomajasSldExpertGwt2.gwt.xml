@@ -23,14 +23,9 @@
 		<exclude name="*Test*.java"/>
 	</source>
 
-	<!-- Override the common view implementation -->
+	<!-- Define the view factory -->
 	<replace-with class="org.geomajas.sld.editor.expert.gwt2.client.SldEditorViewFactoryImpl">
 		<when-type-is class="org.geomajas.sld.editor.expert.common.client.SldEditorViewFactory" />
-	</replace-with>
-
-	<!-- Override the common css resource -->
-	<replace-with class="org.geomajas.sld.editor.expert.gwt2.client.SldEditorClientBundleFactoryAlternative">
-		<when-type-is class="org.geomajas.sld.editor.expert.common.client.SldEditorClientBundleFactory" />
 	</replace-with>
 
 </module>

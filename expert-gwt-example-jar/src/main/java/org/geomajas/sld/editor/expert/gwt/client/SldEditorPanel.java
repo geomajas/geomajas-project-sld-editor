@@ -69,13 +69,13 @@ public class SldEditorPanel extends SamplePanel {
 	public Canvas getViewPanel() {
 
 		final Window window = new Window();
-
 		window.setAutoCenter(true);
 		window.setShowMinimizeButton(false);
 		window.setShowCloseButton(true);
 		window.setCanDragResize(true);
 		window.setShowResizer(true);
 		window.setSize("700px", "400px");
+		window.setTitle(msg.windowTitle());
 		
 		// Create a new Sld Editor Widget.
 		final SldEditorWidget widget = new SldEditorWidget();

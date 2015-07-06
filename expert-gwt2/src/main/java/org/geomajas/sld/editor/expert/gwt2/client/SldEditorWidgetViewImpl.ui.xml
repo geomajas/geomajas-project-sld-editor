@@ -6,7 +6,7 @@
 
 	<ui:with field="msg" type="org.geomajas.sld.editor.expert.common.client.i18n.SldEditorExpertMessages" />
 
-	<ui:with field="resource" type="org.geomajas.sld.editor.expert.gwt2.client.SldEditorWidgetResourceAlternative" />
+	<ui:with field="resource" type="org.geomajas.sld.editor.expert.common.client.SldEditorWidgetResource" />
 
 	<g:HTMLPanel>
 
@@ -16,25 +16,25 @@
 
 			<g:ListBox ui:field="selectTemplate" title="{msg.templateSelectTooltip}" styleName="{resource.css.sldEditorToolbarElement}" />
 
-			<cb:SldEditorCustomToolBarButton ui:field="validateSld"
+			<cb:SldEditorToolBarButton ui:field="validateSld"
 			                                 resource="{resource.sldValidateButton}"
 			                                 text="{msg.validateButtonTitle}"
 			                                 styleName="{resource.css.sldEditorToolbarElement}"
 			                                 title="{msg.validateButtonTooltip}" />
 
-			<cb:SldEditorCustomToolBarButton ui:field="saveSld"
+			<cb:SldEditorToolBarButton ui:field="saveSld"
 			                                 resource="{resource.sldSaveButton}"
 			                                 text="{msg.saveButtonTitle}"
 			                                 styleName="{resource.css.sldEditorToolbarElement}"
 			                                 title="{msg.saveButtonTooltip}" />
 			                                 
-			<cb:SldEditorCustomToolBarButton ui:field="formatSld"
-			                                 resource="{resource.sldSaveButton}"
+			<cb:SldEditorToolBarButton ui:field="formatSld"
+			                                 resource="{resource.sldFormatButton}"
 			                                 text="{msg.formatButtonTitle}"
 			                                 styleName="{resource.css.sldEditorToolbarElement}"
 			                                 title="{msg.formatButtonTooltip}" />
 
-			<cb:SldEditorCustomToolBarButton ui:field="cancelSld"
+			<cb:SldEditorToolBarButton ui:field="cancelSld"
 			                                 resource="{resource.sldCancelButton}"
 			                                 text="{msg.cancelButtonTitle}"
 			                                 styleName="{resource.css.sldEditorToolbarElement}" />
@@ -43,7 +43,7 @@
 
 		<g:HTMLPanel styleName="{resource.css.sldEditorCodeMirror}">
 
-			<c:CodeMirrorPanel ui:field="codeMirrorPanel" styleName="{resource.css.sldEditorBiggerText}" />
+			<c:CodeMirrorPanel ui:field="codeMirrorPanel" styleName="{resource.css.sldEditorText}" />
 
 		</g:HTMLPanel>
 

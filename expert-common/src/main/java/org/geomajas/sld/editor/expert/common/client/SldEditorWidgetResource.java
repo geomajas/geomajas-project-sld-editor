@@ -10,8 +10,10 @@
  */
 package org.geomajas.sld.editor.expert.common.client;
 
-import com.google.gwt.resources.client.ClientBundle;
 import org.geomajas.annotation.Api;
+
+import com.google.gwt.resources.client.ClientBundle;
+import com.google.gwt.resources.client.ImageResource;
 
 /**
  * Interface for the Sld Editor Resource.
@@ -30,5 +32,37 @@ public interface SldEditorWidgetResource extends ClientBundle {
 	 */
 	@Source("sldEditor-widget.css")
 	SldEditorWidgetCssResource css();
+
+	/**
+	 * Cancel image.
+	 * 
+	 * @return
+	 */
+	@Source("public/sc/icons/silk/cancel.png")
+	ImageResource sldCancelButton();
+
+	/**
+	 * Format SLD text image.
+	 * 
+	 * @return
+	 */
+	@Source("public/sc/icons/silk/text_align_left.png")
+	ImageResource sldFormatButton();
+
+	/**
+	 * Save SLD text image.
+	 * 
+	 * @return
+	 */
+	@Source("public/sc/icons/silk/disk.png")
+	ImageResource sldSaveButton();
+
+	/**
+	 * Validate SLD text image.
+	 * 
+	 * @return
+	 */
+	@Source("public/sc/icons/silk/tick.png")
+	ImageResource sldValidateButton();
 
 }
