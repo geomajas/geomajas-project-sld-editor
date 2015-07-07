@@ -12,6 +12,7 @@ package org.geomajas.sld.editor.expert.gwt2.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+
 import org.geomajas.gwt2.example.base.client.sample.SamplePanel;
 import org.geomajas.gwt2.example.base.client.sample.SamplePanelRegistry;
 import org.geomajas.gwt2.example.base.client.sample.ShowcaseSampleDefinition;
@@ -52,6 +53,11 @@ public class SldEditorExample implements EntryPoint {
 
 			public String getCategory() {
 				return CATEGORY_GENERAL;
+			}
+
+			@Override
+			public String getKey() {
+				return "sldeditor";
 			}
 
 		});

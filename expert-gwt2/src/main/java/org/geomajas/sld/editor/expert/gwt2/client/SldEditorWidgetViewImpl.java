@@ -46,13 +46,16 @@ public class SldEditorWidgetViewImpl implements SldEditorWidgetView {
 	protected ListBox selectTemplate;
 
 	@UiField
-	protected SldEditorCustomToolBarButton validateSld;
-
-/*	@UiField
-	protected SldEditorCustomToolBarButton saveSld;*/
+	protected SldEditorToolBarButton validateSld;
 
 	@UiField
-	protected SldEditorCustomToolBarButton cancelSld;
+	protected SldEditorToolBarButton saveSld;
+
+	@UiField
+	protected SldEditorToolBarButton formatSld;
+
+	@UiField
+	protected SldEditorToolBarButton cancelSld;
 
 	@UiField
 	protected CodeMirrorPanel codeMirrorPanel;
@@ -98,8 +101,6 @@ public class SldEditorWidgetViewImpl implements SldEditorWidgetView {
 				// Only fetch the template when the selected index is not the tooltip.
 				if (selectTemplate.getSelectedIndex() != 0) {
 
-					/*saveSld.setEnabled(true);*/
-
 					presenter.onTemplateSelect(
 							selectTemplate.getValue(selectTemplate.getSelectedIndex())
 					);
@@ -118,14 +119,23 @@ public class SldEditorWidgetViewImpl implements SldEditorWidgetView {
 			}
 		});
 
-/*		saveSld.addClickHandler(new ClickHandler() {
+		saveSld.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
 
 				presenter.onSaveButton();
 
 			}
-		});*/
+		});
+
+		formatSld.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+
+				presenter.onFormatButton();
+
+			}
+		});
 
 		cancelSld.addClickHandler(new ClickHandler() {
 			@Override

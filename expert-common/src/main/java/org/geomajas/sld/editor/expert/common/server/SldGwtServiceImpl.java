@@ -42,6 +42,10 @@ public class SldGwtServiceImpl implements SldGwtService {
 		return sldService.validate(raw);
 	}
 
+	public RawSld format(RawSld raw) throws SldException {
+		return sldService.format(raw);
+	}
+
 	public StyledLayerDescriptorInfo convertRawToDescriptor(RawSld raw) throws SldException {
 		return sldService.toSldI(raw);
 	}

@@ -11,7 +11,6 @@
 
 package org.geomajas.sld.editor.expert.common.server.service;
 
-
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.StringReader;
@@ -22,8 +21,18 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.annotation.PostConstruct;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.geomajas.sld.NamedLayerInfo;
 import org.geomajas.sld.StyledLayerDescriptorInfo;
 import org.geomajas.sld.UserLayerInfo;
@@ -40,6 +49,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
 import org.springframework.util.StringUtils;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 
 /**
  * Default implementation of the SLD service using an in-memory map. This service loads a configurable directory of SLD
@@ -65,6 +80,7 @@ public class InMemorySldServiceImpl implements org.geomajas.sld.editor.expert.co
 				if (getDirectory().getFile().exists()) {
 					if (getDirectory().getFile().isDirectory()) {
 						File[] sldFiles = getDirectory().getFile().listFiles(new FilenameFilter() {
+
 							public boolean accept(File dir, String name) {
 								return name.endsWith(".sld") || name.endsWith(".xml");
 							}
@@ -172,6 +188,57 @@ public class InMemorySldServiceImpl implements org.geomajas.sld.editor.expert.co
 		}
 	}
 
+	@Override
+	public RawSld format(RawSld sld) throws SldException {
+		try {
+			Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+					.parse(new InputSource(new StringReader(sld.getXml())));
+			XPath xPath = XPathFactory.newInstance().newXPath();
+			// we usually don't want to preserve whitespace !!!
+			NodeList nodeList = (NodeList) xPath.evaluate("//text()[normalize-space()='']", document,
+					XPathConstants.NODESET);
+			for (int i = 0; i < nodeList.getLength(); ++i) {
+				Node node = nodeList.item(i);
+				node.getParentNode().removeChild(node);
+			}
+			Transformer transformer = TransformerFactory.newInstance().newTransformer();
+			transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+			transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+			transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+			StringWriter stringWriter = new StringWriter();
+			StreamResult streamResult = new StreamResult(stringWriter);
+			transformer.transform(new DOMSource(document), streamResult);
+			List<String> lines = IOUtils.readLines(new StringReader(stringWriter.toString()));
+			// wrap the attributes of the document tag
+			if (lines.size() > 1) {
+				Element element = document.getDocumentElement();
+				StringBuilder sb = new StringBuilder("<" + element.getNodeName());
+				NamedNodeMap attributes = element.getAttributes();
+				for (int i = 0; i < attributes.getLength(); i++) {
+					Node attr = attributes.item(i);
+					sb.append("\n    ");
+					sb.append(attr.getNodeName());
+					sb.append("=");
+					sb.append("\"");
+					sb.append(attr.getNodeValue());
+					sb.append("\"");
+				}
+				sb.append(">");
+				// replace the first line by the wrapped version
+				lines.set(0, sb.toString());
+			}
+			RawSld res = new RawSld();
+			res.setXml(StringUtils.collectionToDelimitedString(lines, "\n"));
+			res.setName(sld.getName());
+			res.setVersion(sld.getVersion());
+			res.setTitle(sld.getTitle());
+			return res;
+		} catch (Exception e) {
+			throw new SldException(e.getMessage());
+		}
+	}
+
 	// ---------------------------------------------------------------
 
 	private StyledLayerDescriptorInfo parseXml(String name, String raw) throws JiBXException {
@@ -210,9 +277,13 @@ public class InMemorySldServiceImpl implements org.geomajas.sld.editor.expert.co
 	private String getTitle(StyledLayerDescriptorInfo sld, String fallback) {
 		if (sld.getChoiceList() != null && sld.getChoiceList().size() > 0) {
 			NamedLayerInfo nli = sld.getChoiceList().get(0).getNamedLayer();
-			if (nli != null && nli.getName() != null) { return nli.getName(); }
+			if (nli != null && nli.getName() != null) {
+				return nli.getName();
+			}
 			UserLayerInfo uli = sld.getChoiceList().get(0).getUserLayer();
-			if (uli != null && uli.getName() != null) { return uli.getName(); }
+			if (uli != null && uli.getName() != null) {
+				return uli.getName();
+			}
 		}
 		return fallback;
 	}

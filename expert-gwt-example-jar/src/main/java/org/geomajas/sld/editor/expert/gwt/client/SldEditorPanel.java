@@ -10,12 +10,18 @@
  */
 package org.geomajas.sld.editor.expert.gwt.client;
 
+import org.geomajas.gwt.example.base.SamplePanel;
+import org.geomajas.gwt.example.base.SamplePanelFactory;
+import org.geomajas.sld.editor.expert.common.client.SldEditor;
+import org.geomajas.sld.editor.expert.common.client.SldEditorWidget;
+import org.geomajas.sld.editor.expert.common.client.event.SldCancelEvent;
+import org.geomajas.sld.editor.expert.common.client.event.SldSaveEvent;
+import org.geomajas.sld.editor.expert.common.client.i18n.SldEditorExpertMessages;
+
+import com.google.gwt.core.client.GWT;
 import com.smartgwt.client.widgets.Canvas;
 import com.smartgwt.client.widgets.HTMLFlow;
 import com.smartgwt.client.widgets.Window;
-import org.geomajas.gwt.example.base.SamplePanel;
-import org.geomajas.gwt.example.base.SamplePanelFactory;
-import org.geomajas.sld.editor.expert.common.client.SldEditorWidget;
 
 /**
  * Entry point of SmartGWT SLD editor.
@@ -24,6 +30,10 @@ import org.geomajas.sld.editor.expert.common.client.SldEditorWidget;
  * @author David Debuck
  */
 public class SldEditorPanel extends SamplePanel {
+	
+
+	private static final SldEditorExpertMessages MSG = GWT.create(SldEditorExpertMessages.class);
+
 
 	/**
 	 * This is called by the showcase when clicking on the tree node.
@@ -58,19 +68,42 @@ public class SldEditorPanel extends SamplePanel {
 	@Override
 	public Canvas getViewPanel() {
 
-		Window window = new Window();
-
+		final Window window = new Window();
 		window.setAutoCenter(true);
 		window.setShowMinimizeButton(false);
 		window.setShowCloseButton(true);
-		window.setAutoSize(true);
-
+		window.setCanDragResize(true);
+		window.setShowResizer(true);
+		window.setSize("700px", "400px");
+		window.setTitle(MSG.windowTitle());
+		
 		// Create a new Sld Editor Widget.
-		SldEditorWidget widget = new SldEditorWidget();
+		final SldEditorWidget widget = new SldEditorWidget();
+		
+		SldEditor.getInstance().getEventBus().addHandler(SldSaveEvent.getType(), new SldSaveEvent.SldSaveHandler() {
+			
+			@Override
+			public void onSldSave(SldSaveEvent event) {
+				widget.getView().showMessage(MSG.sldSaveMessage());			
+			}
+		});
+		
+		SldEditor.getInstance().getEventBus()
+				.addHandler(SldCancelEvent.getType(), new SldCancelEvent.SldCancelHandler() {
+
+					@Override
+					public void onSldCancel(SldCancelEvent event) {
+						widget.getView().showMessage(MSG.sldCancelMessage());
+						widget.getView().cancelButtonEvent();
+					}
+				});
 
 		window.addItem(widget.asWidget());
 
 		window.show();
+
+		
+
 
 		return getBackgroundDecoration();
 

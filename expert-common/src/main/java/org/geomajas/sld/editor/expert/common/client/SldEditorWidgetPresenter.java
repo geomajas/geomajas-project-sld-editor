@@ -32,6 +32,11 @@ public interface SldEditorWidgetPresenter {
 	 * Validate the current sld document in the editor.
 	 */
 	void onValidateButton();
+	
+	/**
+	 * Format the current sld document in the editor.
+	 */
+	void onFormatButton();
 
 	/**
 	 * Show the selected sld template in the editor.

@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="en">
 		<!--
 		  ~ This is part of Geomajas, a GIS framework, http://www.geomajas.org/.
@@ -18,13 +18,20 @@
         <!--  set the initial locale -->
         <meta name="gwt:property" content="locale=en" />
 
-        <!-- Mimic Internet Explorer 7 -->
-  		<meta http-equiv="X-UA-Compatible" content="IE=7" />
-
         <title>Geomajas Expert SLD Editor demo</title>
 
         <script type="text/javascript" language="javascript">var isomorphicDir = "SldEditorExample/sc/";</script>
         <script type="text/javascript" language="javascript" src="SldEditorExample/SldEditorExample.nocache.js"></script>
+
+        <!-- scripts for codemirror START -->
+        <script src="SldEditorExample/lib/codemirror.js"></script>
+        <script src="SldEditorExample/mode/xml/xml.js"></script>
+        <script src="SldEditorExample/mode/css/css.js"></script>
+        <script src="SldEditorExample/mode/htmlmixed/htmlmixed.js"></script>
+        <script src="SldEditorExample/addon/edit/closetag.js"></script>
+        <script src="SldEditorExample/addon/fold/collapserange.js"></script>
+        <!-- scripts for codemirror END -->
+        
     </head>
 
     <body>

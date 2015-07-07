@@ -6,11 +6,11 @@
 
 	<g:DockLayoutPanel unit="PX" width="100%" height="100%">
 		<g:center>
-			<g:HTMLPanel ui:field="panel">
+			<g:SimpleLayoutPanel ui:field="panel">
 
 				<!-- -->
 
-			</g:HTMLPanel>
+			</g:SimpleLayoutPanel>
 		</g:center>
 	</g:DockLayoutPanel>
 

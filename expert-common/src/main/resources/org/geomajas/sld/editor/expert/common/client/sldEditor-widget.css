@@ -1,15 +1,37 @@
-@external .gm-sldEditorToolStrip;
-.gm-sldEditorToolStrip {
-	width: 650px;
+@external .gm-sldEditorToolbar;
+.gm-sldEditorToolbar {
+	padding-bottom: 4px;
+	border-bottom: solid 1px grey;
 }
 
-@external .gm-sldEditorCodeMirrorPanel;
-.gm-sldEditorCodeMirrorPanel {
-	width: 650px;
-	height: 400px;
+@external .gm-sldEditorToolbarElementTitle;
+.gm-sldEditorToolbarElementTitle {
+	font-weight: bold;
+	margin-right: 5px;
 }
 
-@external .gm-sldEditorSelectTemplateListBox;
-.gm-sldEditorSelectTemplateListBox {
-	width: 400px;
+@external .gm-sldEditorToolbarElement;
+.gm-sldEditorToolbarElement {
+	margin-right: 10px;
+	padding: 5px 8px;
+}
+
+.gm-sldEditorToolbarElement > span {
+	padding-left: 5px;
+	vertical-align: middle;
+}
+
+.gm-sldEditorToolbarElement > img {
+	vertical-align: middle;
+}
+
+@external .gm-sldEditorText;
+.gm-sldEditorText {
+	font-size: 10pt;
+}
+
+@external .gm-sldEditorCodeMirror;
+.gm-sldEditorCodeMirror {
+	height: 94%;
+	overflow: auto;
 }

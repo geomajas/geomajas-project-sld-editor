@@ -32,6 +32,8 @@ public interface SldService {
 
 	boolean validate(RawSld sld) throws SldException;
 
+	RawSld format(RawSld raw) throws SldException;
+
 	RawSld toXml(StyledLayerDescriptorInfo sldi) throws SldException;
 
 	StyledLayerDescriptorInfo toSldI(RawSld sld) throws SldException;
