@@ -32,7 +32,7 @@ import com.smartgwt.client.widgets.Window;
 public class SldEditorPanel extends SamplePanel {
 	
 
-	private SldEditorExpertMessages msg = GWT.create(SldEditorExpertMessages.class);
+	private static final SldEditorExpertMessages MSG = GWT.create(SldEditorExpertMessages.class);
 
 
 	/**
@@ -75,7 +75,7 @@ public class SldEditorPanel extends SamplePanel {
 		window.setCanDragResize(true);
 		window.setShowResizer(true);
 		window.setSize("700px", "400px");
-		window.setTitle(msg.windowTitle());
+		window.setTitle(MSG.windowTitle());
 		
 		// Create a new Sld Editor Widget.
 		final SldEditorWidget widget = new SldEditorWidget();
@@ -84,7 +84,7 @@ public class SldEditorPanel extends SamplePanel {
 			
 			@Override
 			public void onSldSave(SldSaveEvent event) {
-				widget.getView().showMessage(msg.sldSaveMessage());			
+				widget.getView().showMessage(MSG.sldSaveMessage());			
 			}
 		});
 		
@@ -93,7 +93,7 @@ public class SldEditorPanel extends SamplePanel {
 
 					@Override
 					public void onSldCancel(SldCancelEvent event) {
-						widget.getView().showMessage(msg.sldCancelMessage());
+						widget.getView().showMessage(MSG.sldCancelMessage());
 						widget.getView().cancelButtonEvent();
 					}
 				});

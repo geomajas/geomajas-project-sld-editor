@@ -38,7 +38,7 @@ public interface SldEditorWidgetResource extends ClientBundle {
 	 * 
 	 * @return
 	 */
-	@Source("public/sc/icons/silk/cancel.png")
+	@Source("../public/sc/icons/silk/cancel.png")
 	ImageResource sldCancelButton();
 
 	/**
@@ -46,7 +46,7 @@ public interface SldEditorWidgetResource extends ClientBundle {
 	 * 
 	 * @return
 	 */
-	@Source("public/sc/icons/silk/text_align_left.png")
+	@Source("../public/sc/icons/silk/text_align_left.png")
 	ImageResource sldFormatButton();
 
 	/**
@@ -54,7 +54,7 @@ public interface SldEditorWidgetResource extends ClientBundle {
 	 * 
 	 * @return
 	 */
-	@Source("public/sc/icons/silk/disk.png")
+	@Source("../public/sc/icons/silk/disk.png")
 	ImageResource sldSaveButton();
 
 	/**
@@ -62,7 +62,7 @@ public interface SldEditorWidgetResource extends ClientBundle {
 	 * 
 	 * @return
 	 */
-	@Source("public/sc/icons/silk/tick.png")
+	@Source("../public/sc/icons/silk/tick.png")
 	ImageResource sldValidateButton();
 
 }
